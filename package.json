@@ -3,7 +3,7 @@
   "scripts": {
     "pinte": "./vendor/bin/pinte",
     "fix": "npx lint-staged",
-    "cn": "php artisan update && npm update"
+    "cn": "composer update && npm update"
   },
   "type": "module",
   "devDependencies": {
