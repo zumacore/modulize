@@ -1,5 +1,20 @@
 # Release Notes
 
+## [1.0.1](https://github.com/zumacore/modulize/compare/v1.0.0...v1.0.1) (2024-01-24)
+
+
+### Bug Fixes
+
+* updates for app-module config changes ([dfc9e73](https://github.com/zumacore/modulize/commit/dfc9e7389825f7f3727c54e8f23afbd0d3dc0ab8))
+
+
+* **deps-dev:** bump semantic-release from 22.0.12 to 23.0.0 ([acaf990](https://github.com/zumacore/modulize/commit/acaf9905bed17b328513ea460fdcb0d336c20ac7))
+
+
+### Maintenance
+
+* update dependencies ([ce66ee8](https://github.com/zumacore/modulize/commit/ce66ee85e82d37b809e647cde8bf469e0b33f5d0))
+
 # 1.0.0 (2024-01-24)
 
 
