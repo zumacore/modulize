@@ -1,0 +1,76 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - main
+      - 1.x
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  linux_tests:
+    runs-on: ubuntu-latest
+    if: (!contains(github.event.head_commit.message, '[skip ci]')) && (github.event_name == 'push' && !contains(github.event.head_commit.message, 'Merge pull request'))
+
+    strategy:
+      fail-fast: true
+      matrix:
+        php: [8.2, 8.3]
+
+    name: PHP ${{ matrix.php }} - Linux
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: dom, curl, libxml, mbstring, zip, fileinfo
+          tools: composer:v2
+          coverage: pcov
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Execute tests
+        env:
+          APP_ENV: testing
+          CACHE_DRIVER: array
+          SESSION_DRIVER: array
+        run: vendor/bin/pest
+
+  release:
+    name: Run Release
+    runs-on: ubuntu-latest
+    needs: [linux_tests]
+
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
+
+    steps:
+      - name: Checkout Branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.10.0'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Semantic Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        run: npx semantic-release
