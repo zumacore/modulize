@@ -14,7 +14,7 @@ test('it scaffolds a new module', function () {
   ]);
 
   $fs = $this->filesystem();
-  $module_path = $this->getBasePath().'/app-modules/'.$module_name;
+  $module_path = $this->getBasePath().'/modules/'.$module_name;
 
   expect($fs->isDirectory($module_path))->toBeTrue();
   expect($fs->isDirectory($module_path.'/database'))->toBeTrue();
@@ -48,7 +48,7 @@ test('it scaffolds a new module', function () {
 
   $repository = [
     'type' => 'path',
-    'url' => 'app-modules/*',
+    'url' => 'modules/*',
     'options' => ['symlink' => true],
   ];
   expect($app_composer_contents['repositories'])->toContain($repository);
@@ -59,7 +59,7 @@ test('it scaffolds a new module based on custom config', function () {
 
   $module_name = 'test-module';
 
-  config()->set('app-modules.stubs', [
+  config()->set('modules.stubs', [
     'src/StubClassNamePrefixInfo.php' => str_replace('\\', '/', dirname(__DIR__, 2)).'/stubs/test-stub.php',
   ]);
 
@@ -83,10 +83,10 @@ test('it prompts on first module if no custom namespace is set', function () {
 
   Modules::reload();
 
-  expect($fs->isDirectory($this->getBasePath().'/app-modules/test-module'))->toBeTrue();
+  expect($fs->isDirectory($this->getBasePath().'/modules/test-module'))->toBeTrue();
 
   $this->artisan(MakeModule::class, ['name' => 'test-module-two'])
       ->assertExitCode(0);
 
-  expect($fs->isDirectory($this->getBasePath().'/app-modules/test-module-two'))->toBeTrue();
+  expect($fs->isDirectory($this->getBasePath().'/modules/test-module-two'))->toBeTrue();
 });

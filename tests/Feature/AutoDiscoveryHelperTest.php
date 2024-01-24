@@ -15,7 +15,7 @@ beforeEach(function () {
   $this->module1 = $this->makeModule('test-module');
   $this->module2 = $this->makeModule('test-module-two');
   $this->helper = new AutoDiscoveryHelper(
-    new ModuleRegistry($this->getBasePath().'/app-modules', ''),
+    new ModuleRegistry($this->getBasePath().'/modules', ''),
     new Filesystem()
   );
 });

@@ -54,7 +54,7 @@ trait WritesToAppFilesystem
     return $this->base_path;
   }
 
-  protected function getModulePath(string $module_name, string $path = '/', string $modules_root = 'app-modules'): string
+  protected function getModulePath(string $module_name, string $path = '/', string $modules_root = 'modules'): string
   {
     return $this->getBasePath()
         .'/'

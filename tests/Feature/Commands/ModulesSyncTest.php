@@ -8,14 +8,14 @@ test('it updates phpunit config', function () {
   $config_path = $this->copyStub('phpunit.xml', '/');
 
   $config = simplexml_load_string($this->filesystem->get($config_path));
-  $nodes = $config->xpath("//phpunit//testsuites//testsuite//directory[text()='./app-modules/*/tests']");
+  $nodes = $config->xpath("//phpunit//testsuites//testsuite//directory[text()='./modules/*/tests']");
 
   expect($nodes)->toHaveCount(0);
 
   $this->artisan(ModulesSync::class);
 
   $config = simplexml_load_string($this->filesystem->get($config_path));
-  $nodes = $config->xpath("//phpunit//testsuites//testsuite//directory[text()='./app-modules/*/tests']");
+  $nodes = $config->xpath("//phpunit//testsuites//testsuite//directory[text()='./modules/*/tests']");
 
   expect($nodes)->toHaveCount(1);
 });

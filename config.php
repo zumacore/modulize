@@ -30,11 +30,8 @@ return [
    * MODULES DIRECTORY
    *
    * If you want to install modules in a custom directory, you can do so here.
-   * Keeping the default `app-modules/` directory is highly recommended,
-   * though, as it keeps your modules near the rest of your application code
-   * in an alpha-sorted directory listing.
    */
-  'modules_directory' => 'app-modules',
+  'modules_directory' => 'modules',
 
   /**
    * BASE TEST CASE
@@ -56,7 +53,7 @@ return [
    * For example:
    *
    * 'stubs' => [
-   * 	'src/Providers/StubClassNamePrefixServiceProvider.php' => base_path('stubs/app-modules/ServiceProvider.php'),
+   * 	'src/Providers/StubClassNamePrefixServiceProvider.php' => base_path('stubs/modules/ServiceProvider.php'),
    * ],
    */
   'stubs' => null,
