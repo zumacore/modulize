@@ -15,9 +15,10 @@ use Zuma\Modulize\Support\ModuleRegistry;
 
 class MakeModule extends Command
 {
-  protected $signature = 'make:module
+  protected $signature = 'modules:make
 		{name : The name of the module}
-		{--accept-default-namespace : Skip default namespace confirmation}';
+		{--accept-namespace : Skip default namespace confirmation}
+    {--empty : Create an empty module directory and namespace}';
 
   protected $description = 'Create a new Laravel module';
 
@@ -101,7 +102,17 @@ class MakeModule extends Command
       return 0;
     }
 
-    $this->writeStubs();
+    if ($this->option('empty')) {
+      $this->ensureModulesDirectoryExists();
+      $this->updateCoreComposerConfig();
+
+      $this->call(ModulesClear::class);
+
+      return 0;
+    } else {
+      $this->writeStubs();
+    }
+
     $this->updateCoreComposerConfig();
 
     $this->call(ModulesClear::class);
@@ -119,7 +130,7 @@ class MakeModule extends Command
   {
     if (
       'Modules' !== $this->module_namespace
-      || true === $this->option('accept-default-namespace')
+      || true === $this->option('accept-namespace')
       || $this->module_registry->modules()->isNotEmpty()
     ) {
       return false;

@@ -21,6 +21,7 @@ use Zuma\Modulize\Console\Commands\Make\MakeMigration;
 use Zuma\Modulize\Console\Commands\Make\MakeModule;
 use Zuma\Modulize\Console\Commands\ModulesCache;
 use Zuma\Modulize\Console\Commands\ModulesClear;
+use Zuma\Modulize\Console\Commands\ModulesInstall;
 use Zuma\Modulize\Console\Commands\ModulesList;
 use Zuma\Modulize\Console\Commands\ModulesSync;
 
@@ -108,6 +109,7 @@ class ModuleServiceProvider extends ServiceProvider
       MakeModule::class,
       ModulesCache::class,
       ModulesClear::class,
+      ModulesInstall::class,
       ModulesSync::class,
       ModulesList::class,
     ]);
