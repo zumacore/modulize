@@ -1,5 +1,17 @@
 # Release Notes
 
+# [1.1.0](https://github.com/zumacore/modulize/compare/v1.0.1...v1.1.0) (2024-02-11)
+
+
+### Bug Fixes
+
+* fix broken tests ([e60b1ef](https://github.com/zumacore/modulize/commit/e60b1ef2b8cff7cc0c2f7a39d61c21008c6eb79f))
+
+
+### Features
+
+* add install command ([9095a21](https://github.com/zumacore/modulize/commit/9095a21f3d2f2f8ef486b059f505d44290e1da0f))
+
 ## [1.0.1](https://github.com/zumacore/modulize/compare/v1.0.0...v1.0.1) (2024-01-24)
 
 
