@@ -1,5 +1,23 @@
 # Release Notes
 
+## [1.1.1](https://github.com/zumacore/modulize/compare/v1.1.0...v1.1.1) (2024-02-11)
+
+
+### Basic Daily Tasks
+
+* update deps ([38accf6](https://github.com/zumacore/modulize/commit/38accf66c2230428dd2d2d74ed7bbbbb59ade204))
+
+
+* **deps-dev:** bump @commitlint/config-conventional ([f27b505](https://github.com/zumacore/modulize/commit/f27b505cbb71ada73ef288a71ce59f3b73e543bc))
+* **deps-dev:** bump husky from 8.0.3 to 9.0.10 ([0b56d85](https://github.com/zumacore/modulize/commit/0b56d85e91c23ad12cd3a0663563fd0eb3a00a05))
+* **deps-dev:** bump semantic-release from 23.0.0 to 23.0.2 ([8729b90](https://github.com/zumacore/modulize/commit/8729b90ad976b1a6d99b25e83da9badbff57a7c0))
+* **deps:** bump hmarr/auto-approve-action from 3 to 4 ([5b5ebf1](https://github.com/zumacore/modulize/commit/5b5ebf1394aa3ef61b939f9c36447b8a3d2df8c1))
+
+
+### Maintenance
+
+* dev deps ([9db6ff0](https://github.com/zumacore/modulize/commit/9db6ff00b2b0bd49dcd866dac32d7aea8f9e9f07))
+
 # [1.1.0](https://github.com/zumacore/modulize/compare/v1.0.1...v1.1.0) (2024-02-11)
 
 
