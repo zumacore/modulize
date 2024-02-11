@@ -10,7 +10,7 @@ test('it scaffolds a new module', function () {
 
   $this->artisan(MakeModule::class, [
     'name' => $module_name,
-    '--accept-default-namespace' => true,
+    '--accept-namespace' => true,
   ]);
 
   $fs = $this->filesystem();
@@ -65,7 +65,7 @@ test('it scaffolds a new module based on custom config', function () {
 
   $this->artisan(MakeModule::class, [
     'name' => $module_name,
-    '--accept-default-namespace' => true,
+    '--accept-namespace' => true,
   ]);
 
   $path = $this->getModulePath($module_name, '/src/TestModuleInfo.php');

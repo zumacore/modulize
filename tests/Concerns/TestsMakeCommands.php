@@ -12,7 +12,7 @@ trait TestsMakeCommands
 
     $this->artisan(MakeModule::class, [
       'name' => $module_name,
-      '--accept-default-namespace' => true,
+      '--accept-namespace' => true,
     ])->assertExitCode(0);
 
     $this->artisan($command, array_merge([

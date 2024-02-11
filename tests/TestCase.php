@@ -39,7 +39,7 @@ abstract class TestCase extends Orchestra
   {
     $this->artisan(MakeModule::class, [
       'name' => $name,
-      '--accept-default-namespace' => true,
+      '--accept-namespace' => true,
     ]);
 
     return Modules::module($name);
